@@ -12,5 +12,6 @@ public class Learning6 {
         Vehicle veh1 = context.getBean(Vehicle.class);
         System.out.println("Vehicle name from Spring Context is: " + veh1.getName()); // should print null
         veh1.printHello();
+        context.close();
     }
 }
