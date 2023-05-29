@@ -1,5 +1,5 @@
 package com.learning.interfaces;
 
-public interface Speaker {
-    public String 
+public interface Speakers {
+    public void makeSound();
 }
