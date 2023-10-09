@@ -15,6 +15,9 @@ public class ProjectSecurityConfig {
         http.authorizeHttpRequests((requests) -> {
             ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests.anyRequest()).permitAll();
         });
+//        http.authorizeHttpRequests((requests) -> {
+//            ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests.anyRequest()).denyAll();
+//        });
         http.formLogin(Customizer.withDefaults());
         http.httpBasic(Customizer.withDefaults());
         return (SecurityFilterChain)http.build();
