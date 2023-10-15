@@ -20,6 +20,7 @@ public class ProjectSecurityConfig {
                         .ignoringRequestMatchers(PathRequest.toH2Console()))
                 .authorizeHttpRequests((requests) -> {
             ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests.requestMatchers("/dashboard")).authenticated();
+            ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests.requestMatchers("/displayMessages")).hasRole("ADMIN");
             ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests.requestMatchers("", "/", "/home")).permitAll();
             ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests.requestMatchers("/holidays/**")).permitAll();
             ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests.requestMatchers("/contact")).permitAll() ;
