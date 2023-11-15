@@ -11,10 +11,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.GenericGenerator;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 @Table(name = "contact_msg")

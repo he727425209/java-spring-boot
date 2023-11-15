@@ -1,7 +1,8 @@
 package com.learning.learning.controller;
 
 import com.learning.learning.model.Holiday;
-import com.learning.learning.repository.HolidayRepository;
+import com.learning.learning.repository.HolidaysRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +13,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+@Slf4j
 @Controller
 public class HolidayController {
     @Autowired
-    private HolidayRepository holidayRepository;
+    private HolidaysRepository holidaysRepository;
 
     @GetMapping("/holidays/{display}")
     public String displayHolidays(@PathVariable String display, Model model) {
@@ -27,7 +29,7 @@ public class HolidayController {
         } else if (null != display && display.equals("festival")) {
             model.addAttribute("festival", true);
         }
-        Iterable<Holiday> holidays = holidayRepository.findAll();
+        Iterable<Holiday> holidays = holidaysRepository.findAll();
         List<Holiday> holidayList = StreamSupport.stream(holidays.spliterator(), false).toList();
         Holiday.Type[] types = Holiday.Type.values();
         for (Holiday.Type type : types) {
